@@ -25,7 +25,7 @@ export default {
       Frustraciones: [],
       Motivaciones: [],
       Marcas: " "
-      
+
     }
   },
 
@@ -34,16 +34,29 @@ export default {
 
   methods: {
     
-    //informacion de una persona
+    //Función para enviar informacion de una persona
     Registro( ) {  
       axios
         .post("/api/guardarPersonasUxd.php", {
-        nombre: this.nombre,
-        objetivos:this.objetivos,
-        frustraciones: this.frustraciones,
-        motivaciones: this.motivaciones,
-        marcas: this.marcas,
-        //completar las variables, estas deben llamarse como las que se recibirán en el backend sin el símbolo del dolar $
+
+          //declaracion de variables del backend
+          nombre: this.Nombre,
+          edad: this.Edad,
+          estadoCivil: this.EstadoCivil,
+          trabajo: this.Trabajo,
+          residencia: this.Residencia,
+          cita: this.Cita,
+          citaAutor: this.CitaAutor,
+          bio: this.Bio,
+          personalidad01: this.Personalidad1,
+          personalidad02: this.Personalidad2,
+          personalidad03: this.Personalidad3,
+          personalidad04: this.Personalidad4,
+          objetivos: this.Objetivos,
+          frustraciones: this.Frustraciones,
+          motivaciones: this.Motivaciones,
+          marcas: this.Marcas
+        
         })
         .then((response) => {
         console.log(response.status)
