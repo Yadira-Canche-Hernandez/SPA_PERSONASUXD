@@ -5,7 +5,7 @@ import Titulo from "./components/Titulo.vue";
 
 <template class="flex-col justify-center bg-blue-100 w-full h-full p-2">
 
-<div class="w-full bg-purple-100 justify-items-center">
+<div class="w-full bg-gradient-to-r from-purple-600 via-blue-400 to-green-200 justify-items-center">
       
       <header>
   
