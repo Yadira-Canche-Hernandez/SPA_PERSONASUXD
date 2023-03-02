@@ -7,23 +7,34 @@ export default {
 
   data() {
     return {
+
+      //variables que va recibir
+      Nombre: " ",
+      Edad: " ",
+      EstadoCivil: " ",
+      Trabajo:" ",
+      Residencia: " ",
+      Cita: " ",
+      CitaAutor: " ",
+      Bio: " ",
+      Personalidad1: " ",
+      Personalidad2:" ",
+      Personalidad3: " ",
+      Personalidad4: " ",
+      Objetivos: " ",
+      Frustraciones: [],
+      Motivaciones: [],
+      Marcas: " "
       
     }
   },
 
   mounted() {
-    axios.get(API_URL)
-      .then((response) => {
-        //paginas
-        this.info = response.data.info;
-        //resultados
-        this.personajes = response.data.results;
-      })
   },
 
   methods: {
     
-    //informacion de un personaje
+    //informacion de una persona
     Registro( ) {  
       axios
         .post("/api/guardarPersonasUxd.php", {
