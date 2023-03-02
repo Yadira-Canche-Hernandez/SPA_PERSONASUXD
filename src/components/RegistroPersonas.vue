@@ -1,5 +1,6 @@
 <script>
 import axios from 'axios'
+import { getTransitionRawChildren } from 'vue';
 
 
 
@@ -36,8 +37,11 @@ export default {
     
     //Función para enviar informacion de una persona
     Registro() {  
-      axios
-        .post("/api/guardarPersonasUxd.php", {
+
+      if(!isNaN (this.Nombre) === false && this.Nombre.length <201 && this.Nombre.length > 3 ) 
+        {
+        axios
+      .post("/api/guardarPersonasUxd.php", {
 
           //declaracion de variables del backend
           nombre: this.Nombre,
@@ -62,8 +66,13 @@ export default {
         //comprobación de envio a la base de datos con numero 200
         console.log(response.status)
         });
-      
-    }
+      }
+      else{
+      console.log("es numerico")
+      console.log("es menor a 3")
+      }
+    },
+
   },
 }
 
