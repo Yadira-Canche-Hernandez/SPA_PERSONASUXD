@@ -135,7 +135,7 @@ export default {
           <label class="block text-gray-500 font-bold md:text-left my-2 md:mb-0">
             Cita Autor
           </label>
-          <input type="text" v-model="CitaAutor" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="" placeholder="CitaAutor"/>
+          <input type="text" v-model="CitaAutor" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="CitaAutor" placeholder=""/>
         </div>
 
         <div class="w-full mt-4">
