@@ -10,22 +10,24 @@ export default {
     return {
 
       //variables que va recibir
-      Nombre: " ",
-      Edad: " ",
-      EstadoCivil: " ",
-      Trabajo:" ",
-      Residencia: " ",
-      Cita: " ",
-      CitaAutor: " ",
-      Bio: " ",
-      Personalidad1: " ",
-      Personalidad2:" ",
-      Personalidad3: " ",
-      Personalidad4: " ",
-      Objetivos: " ",
+      Nombre: "",
+      Edad: "",
+      EstadoCivil: "",
+      Trabajo: "",
+      Residencia: "",
+      Cita: "",
+      CitaAutor: "",
+      Bio: "",
+      Personalidad1: "",
+      Personalidad2: "",
+      Personalidad3: "",
+      Personalidad4: "",
+      Objetivos: "",
       Frustraciones: [],
       Motivaciones: [],
-      Marcas: " "
+      Marcas: "",
+
+      valida: false
 
     }
   },
@@ -34,12 +36,19 @@ export default {
   },
 
   methods: {
-    
+    /*ValidarNombre(){
+      if(!isNaN (this.Nombre) === false && this.Nombre.length <201 && this.Nombre.length > 3 ) {
+        valida = true
+      }
+      else{
+        valida = false
+      }
+    }*/
+
     //Función para enviar informacion de una persona
     Registro() {  
-
-      if(!isNaN (this.Nombre) === false && this.Nombre.length <201 && this.Nombre.length > 3 ) 
-        {
+      //if(this.validar== true){}
+      if(!isNaN (this.Nombre) === false && this.Nombre.length <201 && this.Nombre.length > 3 ) {
         axios
       .post("/api/guardarPersonasUxd.php", {
 
@@ -96,12 +105,25 @@ export default {
         </div>
 
         <div class="w-full mt-4">
-          <label class="block text-gray-500 font-bold md:text-left my-2 md:mb-0" for="nombre">
+          <label class="block text-gray-500 font-bold md:text-left my-2 md:mb-0" for="edad">
               Edad
           </label>
-          <input type="text" v-model="Edad" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="nombre" placeholder="Nombre"/>
+          <input type="text" v-model="Edad" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="inline-full-name" placeholder="Nombre"/>
         </div>
 
+        <div class="w-full mt-4">
+          <label class="block text-gray-500 font-bold md:text-left my-2 md:mb-0" for="estado">
+              Estado Civil
+          </label>
+          <input type="text" v-model="EstadoCivil" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="inline-full-name" placeholder="Soltero"/>
+        </div>
+
+                <div class="w-full mt-4">
+          <label class="block text-gray-500 font-bold md:text-left my-2 md:mb-0" for="estado">
+              Estado Civil
+          </label>
+          <input type="text" v-model="EstadoCivil" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="inline-full-name" placeholder="Soltero"/>
+        </div>
         <!--Botones paginas-->
         <div @click="Registro()" class="flex justify-center items-center space-x-4 text-base my-8">
             <!--Pagina anterior-->
