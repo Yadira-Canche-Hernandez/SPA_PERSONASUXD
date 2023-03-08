@@ -147,139 +147,155 @@ export default {
       <h1 class="text-4xl font-bold text-black text-center">Registro</h1>
 
       <form class="w-full mt-6">
-
-        <div class="w-full">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Nombre
-          </label>
-          <input type="text" v-model="Nombre" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="nombre" placeholder="Nombre"/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0" >
-            Edad
-          </label>
-          <input type="text" v-model="Edad" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="edad" placeholder=""/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Estado Civil
-          </label>
-          <select v-model="EstadoCivil" name="EstadoCivil" id="EstadoCivil"  class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none">
-            <option disabled value="">Selecciona </option>
-            <option value="1">Soltero</option>
-            <option value="2">Casado </option>
-            <option value="3">Divorciado</option>
-            <option value="4">Separado</option>
-            <option value="5">Unión libre</option>
-            <option value="6">Viudo</option>
-          </select>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Trabajo
-          </label>
-          <input type="text" v-model="Trabajo" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="trabajo" placeholder=""/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Residencia
-          </label>
-          <input type="text" v-model="Residencia" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Residencia" placeholder=""/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Cita
-          </label>
-          <input type="text" v-model="Cita" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Cita" placeholder=""/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Cita Autor
-          </label>
-          <input type="text" v-model="CitaAutor" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="CitaAutor" placeholder=""/>
-        </div>
-
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Biografia
-          </label>
-          <textarea type="text" v-model="Bio" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Bio" placeholder="">
-          </textarea>
-        </div>
         
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Personalidad 1  
-            <br>
-              {{ this.Personalidad1 }}%
-          </label>
-          <input type="range" v-model="Personalidad1" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad1" placeholder="" typeof="slider" min="0" max="100"/>
+        <div class="grid grid-cols-2">
+
+          <div class="bg-rose-200  p-3 rounded-lg">
+            <div class="w-full">
+              <h1 class="text-2xl  text-center font-bold  text-black ">Datos personales</h1>
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Nombre
+              </label>
+              <input type="text" v-model="Nombre" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="nombre" placeholder="Nombre"/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0" >
+                Edad
+              </label>
+              <input type="text" v-model="Edad" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="edad" placeholder=""/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Estado Civil
+              </label>
+              <select v-model="EstadoCivil" name="EstadoCivil" id="EstadoCivil"  class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none">
+                <option disabled value="">Selecciona </option>
+                <option value="1">Soltero</option>
+                <option value="2">Casado </option>
+                <option value="3">Divorciado</option>
+                <option value="4">Separado</option>
+                <option value="5">Unión libre</option>
+                <option value="6">Viudo</option>
+              </select>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Trabajo
+              </label>
+              <input type="text" v-model="Trabajo" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="trabajo" placeholder=""/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Residencia
+              </label>
+              <input type="text" v-model="Residencia" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="Residencia" placeholder=""/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Escribe una cita o frase de libros, peliculas, etc. con la que te identificas
+              </label>
+              <input type="text" v-model="Cita" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Cita" placeholder=""/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Nombre del autor de la cita o frase anterior
+              </label>
+              <input type="text" v-model="CitaAutor" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="CitaAutor" placeholder=""/>
+            </div>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Biografía
+              </label>
+              <textarea type="text" v-model="Bio" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="Bio" placeholder="">
+              </textarea>
+            </div>
+          </div>
+
+          <div class="ml-5 bg-rose-200  p-3 rounded-lg ">
+
+            <h1 class="text-2xl  text-center font-bold  text-black">Datos persona UXD</h1>
+
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Personalidad 1  
+                <br>
+                  {{ this.Personalidad1 }}%
+              </label>
+              <input type="range" v-model="Personalidad1" class="w-full px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad1" placeholder="" typeof="slider" min="0" max="100"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Personalidad 2 
+                <br>{{ this.Personalidad2 }}%
+              </label>
+              <input type="range" v-model="Personalidad2" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad2" placeholder="" typeof="slider" min="0" max="100"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Personalidad 3
+                <br>
+                {{ this.Personalidad3 }}%
+              </label>
+              <input type="range" v-model="Personalidad3" class="w-full py-3 px-5 rounded-lg transition-colors bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad3" placeholder="" typeof="slider" min="0" max="100"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Personalidad 4
+                <br>
+                {{ this.Personalidad4 }}%    
+              </label>
+              <input type="range" v-model="Personalidad4" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad4" placeholder="" typeof="slider" min="0" max="100"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Objetivos
+              </label>
+              <input type="text" v-model="Objetivos" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Objetivos"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Frustraciones   
+              </label>
+              <input type="text" v-model="Frustraciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Frustraciones"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Motivaciones  
+              </label>
+              <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones"/>
+            </div>
+            
+            <div class="w-full mt-4">
+              <label class="block text-black font-bold md:text-left my-2 md:mb-0">
+                Marcas  
+              </label>
+              <input type="text" v-model="Marcas" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Marcas" placeholder="Separa por comas"/>
+            </div>
+          </div>
+          
         </div>
+
+          <!--Boton Registrar-->
+          <div class="flex justify-center items-center space-x-4 text-base my-8">
+              
+              <button @click="Registro()" class="h-14 mx-2 sm:h-10 px-7 font-semibold rounded-md bg-slate-800 text-white my-2 justify-center shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" type="button">Enviar </button>
+          </div>
+
         
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Personalidad 2 
-            <br>{{ this.Personalidad2 }}%
-          </label>
-          <input type="range" v-model="Personalidad2" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad2" placeholder="" typeof="slider" min="0" max="100"/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-             Personalidad 3
-             <br>
-             {{ this.Personalidad3 }}%
-          </label>
-          <input type="range" v-model="Personalidad3" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad3" placeholder="" typeof="slider" min="0" max="100"/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Personalidad 4
-            <br>
-            {{ this.Personalidad4 }}%    
-          </label>
-          <input type="range" v-model="Personalidad4" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad4" placeholder="" typeof="slider" min="0" max="100"/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Objetivos
-          </label>
-          <input type="text" v-model="Objetivos" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Objetivos" placeholder=""/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Frustraciones   
-          </label>
-          <input type="text" v-model="Frustraciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Frustraciones" placeholder=""/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Motivaciones  
-          </label>
-          <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones" placeholder=""/>
-        </div>
-        
-        <div class="w-full mt-4">
-          <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-            Marcas  
-          </label>
-          <input type="text" v-model="Marcas" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Marcas" placeholder="Separa por comas"/>
-        </div>
-        <!--Botones paginas-->
-        <div class="flex justify-center items-center space-x-4 text-base my-8">
-            <!--Pagina anterior-->
-            <button @click="Registro()" class="h-14 mx-2 sm:h-10 px-7 font-semibold rounded-md bg-slate-800 text-white my-2 justify-center shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" type="button">Enviar </button>
-        </div>
+
       </form> 
     </div>
     
