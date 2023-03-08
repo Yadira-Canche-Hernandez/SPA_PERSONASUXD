@@ -142,7 +142,7 @@ export default {
 
 <div class="w-full h-full bg-gradient-to-r from-purple-600 via-blue-400 to-green-200 flex justify-item-center">
     
-    <div class="w-2/4 m-w-450 m-auto h-auto rounded-lg bg-white py-8 px-7 mb-5">
+    <div class="w-3/5 m-w-450 m-auto h-auto rounded-lg bg-white py-8 px-7 mb-5">
       
       <h1 class="text-4xl font-bold text-black text-center">Registro</h1>
 
@@ -150,7 +150,7 @@ export default {
         
         <div class="grid grid-cols-2">
 
-          <div class="bg-rose-200  p-3 rounded-lg">
+          <div class=" bg-rose-200  p-3 rounded-lg">
             <div class="w-full">
               <h1 class="text-2xl  text-center font-bold  text-black ">Datos personales</h1>
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
@@ -218,42 +218,86 @@ export default {
             </div>
           </div>
 
-          <div class="ml-5 bg-rose-200  p-3 rounded-lg ">
+          <div class="ml-5 bg-rose-200  p-3 rounded-lg w-full ">
 
             <h1 class="text-2xl  text-center font-bold  text-black">Datos persona UXD</h1>
 
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 1  
+                Personalidad 1 "Mente"  
                 <br>
-                  {{ this.Personalidad1 }}%
               </label>
-              <input type="range" v-model="Personalidad1" class="w-full px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad1" placeholder="" typeof="slider" min="0" max="100"/>
-            </div>
+
+              <div class="flex justify-between px-3  ">
+                <label class="text-black  text-left md:text-left my-2 md:mb-0">
+                  Extrovertido: <br>  {{ this.Personalidad1 }}%
+                </label>
+                
+                <label class="text-black  text-end  mr-0 md:text-right my-2 md:mb-0">
+                  Introvertido: <br> {{ 100 - this.Personalidad1 }}%
+                </label>
+
+              </div>
+
+              <input type="range" v-model="Personalidad1" class="w-full px-3 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad1" placeholder="" typeof="slider" min="0" max="100"/>
+            
+          </div>
             
             <div class="w-full mt-4">
+
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 2 
-                <br>{{ this.Personalidad2 }}%
+                Personalidad 2 "Energia" 
               </label>
+
+              <div class="flex justify-between px-3  ">
+                <label class="text-black text-left md:text-left my-2 md:mb-0">
+                  Intuitivo: <br>  {{ this.Personalidad2 }}%
+                </label>
+                
+                <label class="text-black text-end  mr-0 md:text-right my-2 md:mb-0">
+                  Observador: <br> {{ 100 - this.Personalidad2 }}%
+                </label>
+
+              </div>
+
               <input type="range" v-model="Personalidad2" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad2" placeholder="" typeof="slider" min="0" max="100"/>
             </div>
             
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 3
-                <br>
-                {{ this.Personalidad3 }}%
+                Personalidad 3 "Naturaleza"
               </label>
+
+              <div class="flex justify-between px-3  ">
+                <label class="text-black text-left md:text-left my-2 md:mb-0">
+                  Pensamiento: <br>  {{ this.Personalidad3 }}%
+                </label>
+                
+                <label class="text-black text-end  mr-0 md:text-right my-2 md:mb-0">
+                  Emocional: <br> {{ 100 - this.Personalidad3 }}%
+                </label>
+
+              </div>
+
               <input type="range" v-model="Personalidad3" class="w-full py-3 px-5 rounded-lg transition-colors bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad3" placeholder="" typeof="slider" min="0" max="100"/>
             </div>
             
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 4
-                <br>
-                {{ this.Personalidad4 }}%    
+                Personalidad 4 "Identidad"
               </label>
+
+              <div class="flex justify-between px-3  ">
+                <label class="text-black text-left md:text-left my-2 md:mb-0">
+                  Asertivo: <br>  {{ this.Personalidad4 }}%
+                </label>
+                
+                <label class="text-black text-end  mr-0 md:text-right my-2 md:mb-0">
+                  Cauteloso: <br> {{ 100 - this.Personalidad4 }}%
+                </label>
+
+              </div>
+
               <input type="range" v-model="Personalidad4" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad4" placeholder="" typeof="slider" min="0" max="100"/>
             </div>
             
