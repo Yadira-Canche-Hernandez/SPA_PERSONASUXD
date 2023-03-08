@@ -7,7 +7,7 @@
     <div></div>
     <div class="w-full flex-col justify-items-center h-screen">
         
-        <img src="../components/icons/rick.jpg"  width="500" height="200" class="mx-auto">
+        <img src="../components/icons/persona.png"  width="500" height="200" class="mx-auto">
         
         
         <p class="text-center mt-5 text-xl">
