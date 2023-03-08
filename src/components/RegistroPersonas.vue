@@ -1,31 +1,40 @@
 <script>
+import BotonEnviar from '../components/BotonEnviar.vue';
 import axios from 'axios';
 
 
-export default {
-    data() {
-        return {
-          //variables que va recibir
-          Nombre: "",
-          Edad: "",
-          EstadoCivil: "",
-          Trabajo: "",
-          Residencia: "",
-          Cita: "",
-          CitaAutor: "",
-          Bio: "",
-          Personalidad1: "50",
-          Personalidad2: "50",
-          Personalidad3: "50",
-          Personalidad4: "50",
-          Objetivos: [],
-          Frustraciones: [],
-          Motivaciones: [],
-          Marcas: "",
 
-          //variable validaciones
-          validar:false
-        };
+export default {
+  components:{
+    
+    BotonEnviar
+  },
+  
+  emits: ['person'],
+
+    data() {
+      return {
+        //variables que va recibir
+        Nombre: "",
+        Edad: "",
+        EstadoCivil: "",
+        Trabajo: "",
+        Residencia: "",
+        Cita: "",
+        CitaAutor: "",
+        Bio: "",
+        Personalidad1: "50",
+        Personalidad2: "50",
+        Personalidad3: "50",
+        Personalidad4: "50",
+        Objetivos: [],
+        Frustraciones: [],
+        Motivaciones: [],
+        Marcas: "",
+
+        //variable validaciones
+        validar:false
+      };
     },
     mounted() {
     },
@@ -333,10 +342,10 @@ export default {
         </div>
 
           <!--Boton Registrar-->
-          <div class="flex justify-center items-center space-x-4 text-base my-8">
-              
-              <button @click="Registro()" class="h-14 mx-2 sm:h-10 px-7 font-semibold rounded-md bg-slate-800 text-white my-2 justify-center shadow-xl hover:shadow-inner transition duration-500 ease-in-out  transform hover:-translate-x hover:scale-105" type="button">Enviar </button>
-          </div>
+                        
+            <BotonEnviar @click="Registro()" >
+              Enviar
+            </BotonEnviar>
 
         
 
