@@ -3,6 +3,7 @@
 import BotonEnviar from '../components/BotonEnviar.vue';
 import InputText from '../components/InputText.vue';
 import TextArea from '../components/TextArea.vue';
+import InputSlider from '../components/InputSlider.vue';
 
 import axios from 'axios';
 
@@ -11,10 +12,10 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar, InputText, TextArea
+    BotonEnviar, InputText, TextArea, InputSlider
   },
   
-  emits: ['dataIT, dataTA'],
+  emits: ['dataIT, dataTA, porcentaje'],
 
     data() {
       return {
@@ -80,6 +81,10 @@ export default {
         TextAreaB(a){
           //le asignamos lo que recibe a la variable
           this.Bio=a
+        },
+
+        SliderP1(s){
+          this.Personalidad1=s
         },
 
         //Función para enviar informacion de una persona
@@ -291,7 +296,7 @@ export default {
 
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 1 "Mente"  
+                "Mente"  
                 <br>
               </label>
 
@@ -306,14 +311,15 @@ export default {
 
               </div>
 
-              <input type="range" v-model="Personalidad1" class="w-full px-3 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad1" placeholder="" typeof="slider" min="0" max="100"/>
+              <!--Uso al componente-->
+              <InputSlider @porcentaje="SliderP1" ></InputSlider>
             
           </div>
             
             <div class="w-full mt-4">
 
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 2 "Energia" 
+                "Energia" 
               </label>
 
               <div class="flex justify-between px-3  ">
@@ -332,7 +338,7 @@ export default {
             
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 3 "Naturaleza"
+                "Naturaleza"
               </label>
 
               <div class="flex justify-between px-3  ">
@@ -346,12 +352,12 @@ export default {
 
               </div>
 
-              <input type="range" v-model="Personalidad3" class="w-full py-3 px-5 rounded-lg transition-colors bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad3" placeholder="" typeof="slider" min="0" max="100"/>
+              
             </div>
             
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
-                Personalidad 4 "Identidad"
+                "Identidad"
               </label>
 
               <div class="flex justify-between px-3  ">
