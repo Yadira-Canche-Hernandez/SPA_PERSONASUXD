@@ -8,7 +8,8 @@ export default {
         }
     },
     methods: {
-        enviar() {
+        //Funcion para hacer un emit
+        PasarDato() {
             
             this.$emit('dataIT',this.datoIT)
         }
@@ -17,5 +18,5 @@ export default {
 </script>
 
 <template>
-    <input type="text" v-model="datoIT" name="dataIT" id="dataIT" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" @input="Registro"/>
+    <input type="text" v-model="datoIT" name="dataIT" id="dataIT" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" @input="PasarDato"/>
 </template>
