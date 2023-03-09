@@ -83,8 +83,21 @@ export default {
           this.Bio=a
         },
 
+        //Personalidades
         SliderP1(s){
           this.Personalidad1=s
+        },
+
+        SliderP2(s){
+          this.Personalidad2=s
+        },
+
+        SliderP3(s){
+          this.Personalidad3=s
+        },
+
+        SliderP4(s){
+          this.Personalidad4=s
         },
 
         //Función para enviar informacion de una persona
@@ -333,7 +346,8 @@ export default {
 
               </div>
 
-              <input type="range" v-model="Personalidad2" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad2" placeholder="" typeof="slider" min="0" max="100"/>
+              <!--Uso al componente-->
+              <InputSlider @porcentaje="SliderP2" ></InputSlider>
             </div>
             
             <div class="w-full mt-4">
@@ -352,6 +366,8 @@ export default {
 
               </div>
 
+              <!--Uso al componente-->
+              <InputSlider @porcentaje="SliderP3" ></InputSlider>
               
             </div>
             
@@ -371,7 +387,8 @@ export default {
 
               </div>
 
-              <input type="range" v-model="Personalidad4" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Personalidad4" placeholder="" typeof="slider" min="0" max="100"/>
+              <!--Uso al componente-->
+              <InputSlider @porcentaje="SliderP4" ></InputSlider>
             </div>
             
             <div class="w-full mt-4">
