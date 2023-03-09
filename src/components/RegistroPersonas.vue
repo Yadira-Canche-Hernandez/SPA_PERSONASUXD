@@ -1,16 +1,19 @@
 <script>
+//importación de componentes
 import BotonEnviar from '../components/BotonEnviar.vue';
+import InputText from '../components/InputText.vue';
+
 import axios from 'axios';
 
 
 
 export default {
   components:{
-    
-    BotonEnviar
+    //nombre con el que se llama a los componentes
+    BotonEnviar,InputText
   },
   
-  emits: ['person'],
+  emits: ['dataIT'],
 
     data() {
       return {
@@ -39,6 +42,14 @@ export default {
     mounted() {
     },
     methods: {
+
+        //Funciones para pasar los datos que recibe como componentes a las variables declaradas
+        
+        //Nombre
+        DataIT1(t){
+                //le asignamos lo que recibe a la variable
+                this.Nombre=t
+        },
 
         //Función para enviar informacion de una persona
         Registro() {
@@ -162,10 +173,14 @@ export default {
           <div class=" bg-rose-200  p-3 rounded-lg">
             <div class="w-full">
               <h1 class="text-2xl  text-center font-bold  text-black ">Datos personales</h1>
+              
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Nombre
               </label>
-              <input type="text" v-model="Nombre" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="nombre" placeholder="Nombre"/>
+              
+              <!--Uso al componente-->
+              <InputText @dataIT= " DataIT1 " > </InputText>
+            
             </div>
 
             <div class="w-full mt-4">
