@@ -51,6 +51,12 @@ export default {
                 this.Nombre=t
         },
 
+        //Edad
+        DataIT2(t){
+                //le asignamos lo que recibe a la variable
+                this.Edad=t
+        },
+
         //Función para enviar informacion de una persona
         Registro() {
           if(this.Validar()){
@@ -179,7 +185,7 @@ export default {
               </label>
               
               <!--Uso al componente-->
-              <InputText @dataIT= " DataIT1 " > </InputText>
+              <InputText @dataIT="DataIT1" > </InputText>
             
             </div>
 
@@ -187,7 +193,10 @@ export default {
               <label class="block text-black font-bold md:text-left my-2 md:mb-0" >
                 Edad
               </label>
-              <input type="text" v-model="Edad" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="edad" placeholder=""/>
+              
+              <!--Uso al componente-->
+              <InputText @dataIT= "DataIT2" > </InputText>
+
             </div>
 
             <div class="w-full mt-4">
