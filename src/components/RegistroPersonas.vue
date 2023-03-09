@@ -2,6 +2,7 @@
 //importación de componentes
 import BotonEnviar from '../components/BotonEnviar.vue';
 import InputText from '../components/InputText.vue';
+import TextArea from '../components/TextArea.vue';
 
 import axios from 'axios';
 
@@ -10,10 +11,10 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar,InputText
+    BotonEnviar, InputText, TextArea
   },
   
-  emits: ['dataIT'],
+  emits: ['dataIT, dataTA'],
 
     data() {
       return {
@@ -47,26 +48,38 @@ export default {
         
         //Nombre
         DataIT1(t){
-                //le asignamos lo que recibe a la variable
-                this.Nombre=t
+          //le asignamos lo que recibe a la variable
+          this.Nombre=t
         },
 
         //Edad
         DataIT2(t){
-                //le asignamos lo que recibe a la variable
-                this.Edad=t
+          //le asignamos lo que recibe a la variable
+          this.Edad=t
         },
 
         //Trabajo
         DataIT3(t){
-                //le asignamos lo que recibe a la variable
-                this.Trabajo=t
+          //le asignamos lo que recibe a la variable
+          this.Trabajo=t
         },
 
         //Residencia
         DataIT4(t){
-                //le asignamos lo que recibe a la variable
-                this.Residencia=t
+          //le asignamos lo que recibe a la variable
+          this.Residencia=t
+        },
+
+        //Cita
+        TextAreaC(a){
+          //le asignamos lo que recibe a la variable
+          this.Cita=a
+        },
+
+        //Biografia
+        TextAreaB(a){
+          //le asignamos lo que recibe a la variable
+          this.Bio=a
         },
 
         //Función para enviar informacion de una persona
@@ -241,7 +254,7 @@ export default {
               </label>
               
               <!--Uso al componente-->
-              <InputText @dataIT= "DataIT4" > </InputText>
+              <InputText @dataIT= "DataIT4"> </InputText>
 
             </div>
 
@@ -249,7 +262,9 @@ export default {
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Escribe una cita o frase de libros, peliculas, etc. con la que te identificas
               </label>
-              <input type="text" v-model="Cita" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Cita" placeholder=""/>
+              
+              <!--Uso al componente-->
+              <TextArea @dataTA = "TextAreaC"></TextArea>
             </div>
 
             <div class="w-full mt-4">
@@ -263,8 +278,10 @@ export default {
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Biografía
               </label>
-              <textarea type="text" v-model="Bio" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="Bio" placeholder="">
-              </textarea>
+              
+              <!--Uso al componente-->
+              <TextArea @dataTA = "TextAreaB"></TextArea>
+
             </div>
           </div>
 
