@@ -12,6 +12,7 @@ import Titulo from "./components/Titulo.vue";
         <nav class ="py-3 bg-black flex justify-self-center items-center text-white pl-5 gap-5 font-semibold hover:text-gray-500">
           <RouterLink to="/">Inicio</RouterLink>
           <RouterLink to="/RegistroPersonas">Registro de Personas</RouterLink>
+          <RouterLink to="/ListaPersonas">Listado de Personas</RouterLink>
           
         </nav>
         
@@ -19,7 +20,6 @@ import Titulo from "./components/Titulo.vue";
   
           <Titulo msg="Creando personas UXD" />
   
-          
         </div>
   
       </header>
