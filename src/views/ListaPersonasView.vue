@@ -3,7 +3,7 @@ import Personas from "../components/Personas.vue";
 </script>
 
 <template>
-  <div>
+  <div class="p-5">
 
     <Personas />
 
