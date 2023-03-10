@@ -4,6 +4,7 @@ import BotonEnviar from '../components/BotonEnviar.vue';
 import InputText from '../components/InputText.vue';
 import TextArea from '../components/TextArea.vue';
 import InputSlider from '../components/InputSlider.vue';
+import InputArray from '../components/InputTextArray.vue';
 
 import axios from 'axios';
 
@@ -12,10 +13,10 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar, InputText, TextArea, InputSlider
+    BotonEnviar, InputText, TextArea, InputSlider, InputArray
   },
   
-  emits: ['dataIT, dataTA, porcentaje'],
+  emits: ['dataIT, dataTA, porcentaje, dataA'],
 
     data() {
       return {
@@ -35,10 +36,10 @@ export default {
 
         NuevoObje: "",
         ArrayObjetivos: [{value:''}],
-        NuevoFrus: "",
-        ArrayFrustraciones: [{value:''}],
+      
+        Frustraciones: "",
 
-        Motivaciones: [{value: '','porcentaje':''}],
+        Motivaciones: "",
         Marcas: "",
 
         //variable validaciones
@@ -104,14 +105,15 @@ export default {
           this.Personalidad4=s
         },
 
+        //Objetivos
         Objetivoos(s, index){
           this.ArrayObjetivos[index] = {value: s}
           console.log(this.ArrayObjetivos)
         },
-        Frustracionees(s, index){
+        /*Frustracionees(s, index){
           this.ArrayFrustraciones[index] = {value: s}
           console.log(this.ArrayFrustraciones)
-        },
+        }, */
 
         //Función para enviar informacion de una persona
         Registro() {
@@ -419,9 +421,9 @@ export default {
                 Objetivos
               </label>
               <div v-for="(obj, index) in ArrayObjetivos">
-                <InputText @dataIT="Objetivoos" :index="index"> </InputText>
+                <InputArray @dataA="Objetivoos" :index="index"> </InputArray>
               </div>
-              <BotonEnviar v-on:click.prevent="this.ArrayObjetivos.push(newObje)"> Agregar </BotonEnviar>
+              <BotonEnviar v-on:click.prevent="this.ArrayObjetivos.push(NuevoObje)"> Agregar </BotonEnviar>
             </div>
             
             <!-- Frustraciones  --> 
