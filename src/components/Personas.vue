@@ -159,9 +159,9 @@ export default {
 
   <!--TABLA-->
   <!--Recorre la nueva lista y por cada personaje que encuentra-->    
-  <div class="w-2/3 my-5 mx-auto p-3 border-4 rounded-lg bg-black mb-5 mt-6">
+  <div class="grid grid-cols-2 my-5 mx-auto p-1 border-4 rounded-lg bg-black mb-3 mt-3">
 
-    <h1 class="text-center text-white text-4xl font-bold mt-4"> Lista de Personas</h1><br>
+    <h1 class="text-center text-white text-4xl font-bold my-4"> Lista de Personas</h1><br>
     
     <div class="text-2xl text-black mx-auto">
         
@@ -171,40 +171,38 @@ export default {
               <th class="border-black border-4">Id</th>
               <th class="border-black border-4">Nombre</th>
               <th class="border-black border-4">Edad</th>
-              <th class="border-black border-4">Trabajo</th>
-              <th class="border-black border-4">Residencia</th>
             </tr>
           </thead>
           <tbody>
             <tr v-for="(p, index) in personas"  class=" border-black border-4">
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3 ">  {{ index += 1 }} </td>
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3">{{ p.nombre }}</td>
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3">{{ p.edad }}</td>
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3">{{ p.trabajo }}</td>
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3">{{ p.residencia }}</td>
-              <td class=" border-black border-2 mx-3  bg-white py-2 px-3"> <button @click="InfoPer(p.id)"> VER PERSONA </button> </td>
+              <td class=" border-black border-2 mx-3  bg-white py-2 px-2 ">  {{ index += 1 }} </td>
+              <td class=" border-black border-2 mx-2  bg-white py-2 px-2">{{ p.nombre }}</td>
+              <td class=" border-black border-2 mx-2  bg-white py-2 px-2">{{ p.edad }}</td>
+              <td class=" border-black border-2 mx-2  bg-white py-2 px-2"> <button @click="InfoPer(p.id)"> VER PERSONA </button> </td>
             </tr>
             
           </tbody>
         </table>
 
     </div>
+
+    <!--Informacion sólo Uno-->
+    <div class="m-auto"  v-if="mostrarUno">
+      
+      <!--carta de personaje-->          
+      <div class=" mx-auto my-auto p-3 border-4 border-black bg-white rounded-sm">
+        
+        <h2> <b>Id: </b> {{ infoUno.id }}</h2>
+        <h2> <b>Nombre:</b> {{ infoUno.nombre }}</h2>
+        <h4> <b>Especie:</b> {{ infoUno.edad}}</h4>
+        <h4> <b>Estado:</b> {{ infoUno.estadoCivil}}</h4>
+        <h4> <b>Tipo:</b> {{ infoUno.trabajo }}</h4>
+        <h4> <b>Locación:</b> {{ infoUno.residencia}}</h4>
+      </div>
+            
+    </div>
         
   </div>
 
-  <!--Informacion sólo Uno-->
-  <div class="m-auto"  v-if="mostrarUno">
-    
-    <!--carta de personaje-->          
-    <div class="w-3/4 mx-auto my-auto p-3 border-4 border-black bg-white rounded-sm">
-      
-      <h2> <b>Id: </b> {{ infoUno.id }}</h2>
-      <h2> <b>Nombre:</b> {{ infoUno.nombre }}</h2>
-      <h4> <b>Especie:</b> {{ infoUno.edad}}</h4>
-      <h4> <b>Estado:</b> {{ infoUno.estadoCivil}}</h4>
-      <h4> <b>Tipo:</b> {{ infoUno.trabajo }}</h4>
-      <h4> <b>Locación:</b> {{ infoUno.residencia}}</h4>
-    </div>
-          
-  </div>
+ 
 </template>
