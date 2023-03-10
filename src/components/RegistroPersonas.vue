@@ -32,9 +32,13 @@ export default {
         Personalidad2: "50",
         Personalidad3: "50",
         Personalidad4: "50",
-        Objetivos: [],
-        Frustraciones: [],
-        Motivaciones: [],
+
+        NuevoObje: "",
+        ArrayObjetivos: [{value:''}],
+        NuevoFrus: "",
+        ArrayFrustraciones: [{value:''}],
+
+        Motivaciones: [{value: '','porcentaje':''}],
         Marcas: "",
 
         //variable validaciones
@@ -100,6 +104,15 @@ export default {
           this.Personalidad4=s
         },
 
+        Objetivoos(s, index){
+          this.ArrayObjetivos[index] = {value: s}
+          console.log(this.ArrayObjetivos)
+        },
+        Frustracionees(s, index){
+          this.ArrayFrustraciones[index] = {value: s}
+          console.log(this.ArrayFrustraciones)
+        },
+
         //Función para enviar informacion de una persona
         Registro() {
           if(this.Validar()){
@@ -118,8 +131,8 @@ export default {
               personalidad02: this.Personalidad2,
               personalidad03: this.Personalidad3,
               personalidad04: this.Personalidad4,
-              objetivos: this.Objetivos,
-              frustraciones: this.Frustraciones,
+              objetivos: this.ArrayObjetivos,
+              frustraciones: this.ArrayFrustraciones,
               motivaciones: this.Motivaciones,
               marcas: this.Marcas
             })
@@ -184,7 +197,7 @@ export default {
             }
 
             //Bio
-            if (this.Bio.length < 701 && this.Bio != "" && !isNaN (this.CitaAutor) === false){
+            if (this.Bio.length < 701 && this.Bio != ""){
               console.log("Bio correcta")
             }else{
               console.log("Bio incorrecta")
@@ -223,6 +236,7 @@ export default {
             <div class="w-full">
               <h1 class="text-2xl  text-center font-bold  text-black ">Datos personales</h1>
               
+              <!-- Nombre -->
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Nombre
               </label>
@@ -232,6 +246,7 @@ export default {
             
             </div>
 
+            <!-- Edad -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0" >
                 Edad
@@ -242,11 +257,12 @@ export default {
 
             </div>
 
+            <!-- Estado Civil -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Estado Civil
               </label>
-              <select v-model="EstadoCivil" name="EstadoCivil" id="EstadoCivil"  class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none">
+              <select v-model="EstadoCivil" name="EstadoCivil" id="EstadoCivil"  class="w-full my-2 py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none">
                 <option disabled value="">Selecciona </option>
                 <option value="1">Soltero</option>
                 <option value="2">Casado </option>
@@ -257,6 +273,7 @@ export default {
               </select>
             </div>
 
+            <!-- Trabajo -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Trabajo
@@ -266,6 +283,7 @@ export default {
               <InputText @dataIT= "DataIT3" > </InputText>
             </div>
 
+            <!-- Residencia -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Residencia
@@ -276,6 +294,7 @@ export default {
 
             </div>
 
+            <!-- Cita -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Escribe una cita o frase de libros, peliculas, etc. con la que te identificas
@@ -285,6 +304,7 @@ export default {
               <TextArea @dataTA = "TextAreaC"></TextArea>
             </div>
 
+            <!-- Autor -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Nombre del autor de la cita o frase anterior
@@ -292,6 +312,7 @@ export default {
               <input type="text" v-model="CitaAutor" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="CitaAutor" placeholder=""/>
             </div>
 
+            <!-- Biografia -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Biografía
@@ -302,7 +323,8 @@ export default {
 
             </div>
           </div>
-
+          
+          <!-- Personalidades  -->
           <div class="ml-5 bg-rose-200  p-3 rounded-lg w-full ">
 
             <h1 class="text-2xl  text-center font-bold  text-black">Datos persona UXD</h1>
@@ -327,7 +349,7 @@ export default {
               <!--Uso al componente-->
               <InputSlider @porcentaje="SliderP1" ></InputSlider>
             
-          </div>
+            </div>
             
             <div class="w-full mt-4">
 
@@ -391,13 +413,18 @@ export default {
               <InputSlider @porcentaje="SliderP4" ></InputSlider>
             </div>
             
+            <!-- Objetivos -->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Objetivos
               </label>
-              <input type="text" v-model="Objetivos" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Objetivos"/>
+              <div v-for="(obj, index) in ArrayObjetivos">
+                <InputText @dataIT="Objetivoos" :index="index"> </InputText>
+              </div>
+              <BotonEnviar v-on:click.prevent="this.ArrayObjetivos.push(newObje)"> Agregar </BotonEnviar>
             </div>
             
+            <!-- Frustraciones  --> 
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Frustraciones   
