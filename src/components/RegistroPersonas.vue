@@ -36,8 +36,9 @@ export default {
 
         NuevoObje: "",
         ArrayObjetivos: [{value:''}],
-      
-        Frustraciones: "",
+        
+        NuevoFrus: "",
+        ArrayFrustraciones: [{value:''}],
 
         Motivaciones: "",
         Marcas: "",
@@ -110,10 +111,11 @@ export default {
           this.ArrayObjetivos[index] = {value: s}
           console.log(this.ArrayObjetivos)
         },
-        /*Frustracionees(s, index){
+        //Frustraciones
+        Frustracionees(s, index){
           this.ArrayFrustraciones[index] = {value: s}
           console.log(this.ArrayFrustraciones)
-        }, */
+        }, 
 
         //Función para enviar informacion de una persona
         Registro() {
@@ -431,7 +433,10 @@ export default {
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Frustraciones   
               </label>
-              <input type="text" v-model="Frustraciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Frustraciones"/>
+              <div v-for="(frus, index) in ArrayFrustraciones">
+                <InputArray @dataA="Frustracionees" :index="index"> </InputArray>
+              </div>
+              <BotonEnviar v-on:click.prevent="this.ArrayFrustraciones.push(NuevoFrus)"> Agregar </BotonEnviar>
             </div>
             
             <div class="w-full mt-4">
