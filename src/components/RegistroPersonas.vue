@@ -5,6 +5,7 @@ import InputText from '../components/InputText.vue';
 import TextArea from '../components/TextArea.vue';
 import InputSlider from '../components/InputSlider.vue';
 import InputArray from '../components/InputTextArray.vue';
+//import InputArray2 from '../components/InputTextArray2.vue';
 
 import axios from 'axios';
 
@@ -13,7 +14,7 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar, InputText, TextArea, InputSlider, InputArray
+    BotonEnviar, InputText, TextArea, InputSlider, InputArray, //InputArray2
   },
   
   emits: ['dataIT, dataTA, porcentaje, dataA'],
@@ -40,7 +41,10 @@ export default {
         NuevoFrus: "",
         ArrayFrustraciones: [{value:''}],
 
+        NuevoMot: "",
+        NuevoPorcMot: "0",
         Motivaciones: "",
+
         Marcas: "",
 
         //variable validaciones
@@ -109,13 +113,18 @@ export default {
         //Objetivos
         Objetivoos(s, index){
           this.ArrayObjetivos[index] = {value: s}
-          console.log(this.ArrayObjetivos)
+          
         },
         //Frustraciones
         Frustracionees(s, index){
           this.ArrayFrustraciones[index] = {value: s}
-          console.log(this.ArrayFrustraciones)
+          
         }, 
+        //Motivaciones
+        Motivacionees(s, po , index){
+          this.ArrayMotivaciones[index] = {value: s,porcent: po }
+          //console.log(this.ArrayMotivaciones)
+        },
 
         //Función para enviar informacion de una persona
         Registro() {
@@ -443,7 +452,7 @@ export default {
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Motivaciones  
               </label>
-              <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones"/>
+              <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones" placeholder="Separa por comas"/>
             </div>
             
             <div class="w-full mt-4">
