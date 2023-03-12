@@ -519,7 +519,7 @@ export default {
         <!-- Frustraciones -->
         <div class="w-full mt-4  bg-red-100 rounded-md">
           
-          <h1 class="text-2xl  text-center font-bold  text-black">Frustracionees</h1>
+          <h1 class="text-2xl  text-center font-bold  text-black">Frustraciones</h1>
           
           <!-- recorro array de frustraciones y llamo a index -->
           <div class="w-full mt-4 mx-auto px-3" v-for="f,index in infoUno.frustraciones">
@@ -530,6 +530,30 @@ export default {
             </label>
 
             <h4 class="mb-1 px-3">{{ f.frustracion }}</h4>
+
+          </div>
+
+        </div>
+
+        <!-- Motivaciones -->
+        <div class="w-full mt-4  bg-lime-200  rounded-md">
+          
+          <h1 class="text-2xl  text-center font-bold  text-black">Motivaciones</h1>
+          
+          <!-- recorro cada dato del array de motivaciones y llamo a index -->
+          <div class="w-full mt-3 mx-auto px-3" v-for="m,index in infoUno.motivaciones">
+
+            <label class=" text-black font-bold md:text-left my-2 md:mb-0">
+                Motivación {{ index +1 }}:
+                <br>
+            </label>
+            <!--Nombre motivacion-->
+            <h4 class="mb-1 px-4">{{ m.motivacion }}</h4>
+
+            <div class=" px-4">
+            <!--Porcentaje motivacion-->
+            <input type="range" v-model="m.porcentaje" class="w-full -3 py-3 mx-auto rounded-lg transition-colors bg-blue-100 focus:shadow focus:bg-white focus:outline-none" id="porcentaje" placeholder="" typeof="slider" min="0" max="100"/>
+            </div>
 
           </div>
 

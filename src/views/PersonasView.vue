@@ -4,9 +4,9 @@ import RegistroPersonas from "../components/RegistroPersonas.vue";
 
 <template>
   <div>
-
-    <RegistroPersonas />
+   <RegistroPersonas />
   </div>
+  
 </template>
 
 <style>

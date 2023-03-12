@@ -5,7 +5,7 @@ import InputText from '../components/InputText.vue';
 import TextArea from '../components/TextArea.vue';
 import InputSlider from '../components/InputSlider.vue';
 import InputArray from '../components/InputTextArray.vue';
-//import InputArray2 from '../components/InputTextArray2.vue';
+import InputSliderAr from '../components/InputSliderAr.vue';
 
 import axios from 'axios';
 
@@ -14,10 +14,10 @@ import axios from 'axios';
 export default {
   components:{
     //nombre con el que se llama a los componentes
-    BotonEnviar, InputText, TextArea, InputSlider, InputArray, //InputArray2
+    BotonEnviar, InputText, TextArea, InputSlider, InputArray, InputSliderAr
   },
   
-  emits: ['dataIT, dataTA, porcentaje, dataA'],
+  emits: ['dataIT, dataTA, porcentaje, dataA, porc'],
 
     data() {
       return {
@@ -42,8 +42,7 @@ export default {
         ArrayFrustraciones: [{value:''}],
 
         NuevoMot: "",
-        NuevoPorcMot: "0",
-        Motivaciones: "",
+        ArrayMotivaciones: [{ value: '', porcentaje: '' }],
 
         Marcas: "",
 
@@ -121,9 +120,13 @@ export default {
           
         }, 
         //Motivaciones
-        Motivacionees(s, po , index){
-          this.ArrayMotivaciones[index] = {value: s,porcent: po }
-          //console.log(this.ArrayMotivaciones)
+        MotivacionesText(s, index) {
+            this.ArrayMotivaciones[index] = { value: s , porcentaje: this.ArrayMotivaciones[index].value }
+            console.log(this.ArrayMotivaciones)
+        },
+        MotivacionesVal(s, index) {
+          this.ArrayMotivaciones[index] = { value: this.ArrayMotivaciones[index].value , porcentaje: s }
+          console.log(this.ArrayMotivaciones)  
         },
 
         //Función para enviar informacion de una persona
@@ -146,7 +149,7 @@ export default {
               personalidad04: this.Personalidad4,
               objetivos: this.ArrayObjetivos,
               frustraciones: this.ArrayFrustraciones,
-              motivaciones: this.Motivaciones,
+              motivaciones: this.ArrayMotivaciones,
               marcas: this.Marcas
             })
             .then((response) => {
@@ -214,6 +217,30 @@ export default {
               console.log("Bio correcta")
             }else{
               console.log("Bio incorrecta")
+              return false
+            }
+
+            //Objetivos
+            if ( this.ArrayObjetivos  != ""){
+              console.log("Objetivo correcto")
+            }else{
+              console.log("Objetivo incorrecto")
+              return false
+            }
+
+            //Frustraciones
+            if ( this.ArrayFrustraciones  != ""){
+              console.log("Frustraciones correcto")
+            }else{
+              console.log("Frustraciones incorrecto")
+              return false
+            }
+
+            //Motivaciones
+            if ( this.ArrayMotivaciones  != ""){
+              console.log("Motivaciones correcto")
+            }else{
+              console.log("Motivaciones incorrecto")
               return false
             }
 
@@ -350,7 +377,7 @@ export default {
 
               <div class="flex justify-between px-3  ">
                 <label class="text-black  text-left md:text-left my-2 md:mb-0">
-                  Extrovertido: <br>  {{ this.Personalidad1 }}%
+                  Extrovertido: <br> {{ this.Personalidad1 }}%
                 </label>
                 
                 <label class="text-black  text-end  mr-0 md:text-right my-2 md:mb-0">
@@ -382,6 +409,7 @@ export default {
               </div>
 
               <!--Uso al componente-->
+
               <InputSlider @porcentaje="SliderP2" ></InputSlider>
             </div>
             
@@ -448,11 +476,27 @@ export default {
               <BotonEnviar v-on:click.prevent="this.ArrayFrustraciones.push(NuevoFrus)"> Agregar </BotonEnviar>
             </div>
             
+            <!--Motivaciones-->
             <div class="w-full mt-4">
               <label class="block text-black font-bold md:text-left my-2 md:mb-0">
                 Motivaciones  
               </label>
-              <input type="text" v-model="Motivaciones" class="w-full py-2.5 px-4 rounded-lg bg-gray-100 focus:shadow focus:bg-white focus:outline-none" id="Motivaciones" placeholder="Separa por comas"/>
+
+              <div v-for="(mot, index) in ArrayMotivaciones"  class="flex">
+                <!-- Nombre Motivacion -->
+                <div class="w-full px-3 mt-4">
+                  
+                  <InputArray @dataA="MotivacionesText" :index="index"> </InputArray>
+                </div>
+                <!-- Porcentaje Motivacion  -->
+                <div class="w-full  mt-4">
+                  <InputSliderAr @porc="MotivacionesVal" :index="index"> </InputSliderAr>
+                </div>
+
+              </div>
+              
+              <BotonEnviar v-on:click.prevent="this.ArrayMotivaciones.push(NuevoMot)"> Agregar </BotonEnviar>
+              
             </div>
             
             <div class="w-full mt-4">

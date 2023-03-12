@@ -19,7 +19,7 @@ export default {
 
 <template>
     
-    <textarea type="text" v-model="datoTA" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="TextArea" rows="2" @input="PasarDato">
+    <textarea type="text" v-model="datoTA" class="w-full py-2.5 px-4 rounded-lg bg-gray-50 focus:shadow focus:bg-white focus:outline-none" id="TextArea" rows="5" @input="PasarDato">
     </textarea>
 
 </template>
